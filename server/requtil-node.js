@@ -1,6 +1,7 @@
-function read_file({directory, pathComplete = true, encoding = "utf-8"}){
+const fs = require("fs");
+function read_file({path, pathComplete = true, encoding = "utf-8"}){
   return function read_file_requestor(callback, value) {
-    return fs.readFile(pathComplete ? directory : directory + value,
+    return fs.readFile(pathComplete ? path : path + value,
     encoding,
     function (err, data) {
       return (

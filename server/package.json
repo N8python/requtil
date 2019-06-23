@@ -1,0 +1,15 @@
+{
+  "name": "crockford-parseq",
+  "version": "1.0.0",
+  "description": "Better living thru immediacy!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "parseq",
+    "requestor"
+  ],
+  "author": "Douglas Crockford",
+  "license": "UNLICENSED"
+}

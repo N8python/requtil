@@ -37,9 +37,9 @@ function append_file({path}) {
     })
   }
 }
-function node_to_requestor(func){
+function node_to_requestor(func, thisarg = Object.create(null)){
   return function requestor(callback, value){
-    return func(...value, function (err, data) {
+    return func.bind(thisarg)(...value, function (err, data) {
       return (
         err 
         ? callback(undefined, err)
@@ -48,10 +48,18 @@ function node_to_requestor(func){
     });
   }
 }
+function node_to_requestor_without_err(func, thisarg = Object.create(null)){
+  return function requestor(callback, value){
+    return func.bind(thisarg)(...value, function (data) {
+      return callback(data);
+    });
+  }
+}
 
 module.exports = Object.freeze({
   read_file,
   write_file,
   append_file,
-  node_to_requestor
+  node_to_requestor,
+  node_to_requestor_without_err
 });

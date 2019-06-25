@@ -1,7 +1,7 @@
 import java.util.function.*;
 @FunctionalInterface
 interface Requestor<T> {
-  void resolve(Function<Object, T> callback, T value);
+  void resolve(Function<T, Void> callback, T value);
 }
 
 @FunctionalInterface

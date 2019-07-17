@@ -1,6 +1,6 @@
 import java.util.*;
 import java.util.function.*;
-class Requtil {
+public class Requtil {
   private static int index = 0;
   static <T> void  sequence (List<Requestor<T>> seq, T initial){
     Thread sequenceThread = new Thread(
